@@ -1,0 +1,18 @@
+site_name: OpenET Initiative
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Spec:
+      - Introduction: spec/introduction.md
+  - API: api/openapi.yaml
+
+plugins:
+  - search
+  - awesome-pages
+  - git-revision-date-localized
+
+markdown_extensions:
+  - admonition
+  - footnotes
