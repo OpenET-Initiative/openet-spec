@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EyeLidSample",
+  "type": "object",
+  "required": ["timestamp"],
+  "properties": {
+    "timestamp": {
+      "type": "number",
+      "description": "A continuously increasing identifier of the sampling time registered by the device. The timestamp values MUST adhere to the gaze-signal metadata provided for this session."
+    },
+    "eye_openness_left": {
+      "type": "number",
+      "description": "A continuous measure of estimated openness of the left eye in units specified in the corresponding signal metadata."
+    },
+    "eye_openness_right": {
+      "type": "number",
+      "description": "A continuous measure of estimated openness of the right eye in units specified in the corresponding signal metadata."
+    },
+    "eye_openness": {
+      "type": "number",
+      "description": "A continuous measure of averaged estimated openness of eyes in units specified in the corresponding signal metadata."
+    },
+    "blink_state_left": {
+      "type": "boolean",
+      "description": "Whether or not the current sample is classified as a blink sample for the left eye."
+    },
+    "blink_state_right": {
+      "type": "boolean",
+      "description": "Whether or not the current sample is classified as a blink sample for the right eye."
+    },
+    "blink_state": {
+      "type": "boolean",
+      "description": "Whether or not the current sample is classified as a blink sample, i.e. it falls in between a blink duration."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score representing the reliability of the detected eye lid state, where 0 indicates lowest confidence and 1 indicates highest confidence."
+    },
+    "blink_extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

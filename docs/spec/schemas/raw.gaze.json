@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GazeSample",
+  "type": "object",
+  "required": ["timestamp"],
+  "properties": {
+    "timestamp": {
+      "type": "number",
+      "description": "A continuously increasing identifier of the sampling time registered by the device. The timestamp values MUST adhere to the gaze-signal metadata provided for this session."
+    },
+    "gaze_coordinate": {
+      "$ref": "./geom.coordinate.json",
+      "description": "[NEW] Gaze position coordinates in (x,y) or (x,y,z) format. This property is a replacement of eye-tracking-BIDS' x_coordinate and y_coordinate, since the earlier system does not factor z_coordinates which are often returned by eye-tracking systems that compute the intersection of gaze vector with a 3D environment and the availability of monocular gaze data from eye trackers like tobii."
+    },
+    "gaze_coordinate_left": {
+      "$ref": "./geom.coordinate.json",
+      "description": "[NEW] Gaze position coordinates for the left eye ONLY, in (x,y) or (x,y,z) format. "
+    },
+    "gaze_coordinate_right": {
+      "$ref": "./geom.coordinate.json",
+      "description": "[NEW] Gaze position coordinates for the right eye ONLY, in (x,y) or (x,y,z) format."
+    },
+    "gaze_vector": {
+      "$ref": "./geom.vector.json",
+      "description": "[NEW] Gaze direction represented as a vector in the coordinate system defined in the gaze-signal metadata. Origin for the vector can be defined in eyeBall signal"
+    },
+    "gaze_vector_left": {
+      "$ref": "./geom.vector.json",
+      "description": "[NEW] Gaze direction vector for the left eye ONLY. A line-of-sight vector for the left eye can be generated if eye ball center is also provided for the left eye in eyeBall signal."
+    },
+    "gaze_vector_right": {
+      "$ref": "./geom.vector.json",
+      "description": "[NEW] Gaze direction vector for the right eye ONLY. A line-of-sight vector for the right eye can be generated if eye ball center is also provided for the right eye in eyeBall signal."
+    },
+    "gaze_angle": {
+      "$ref": "./geom.angle.json",
+      "description": "[NEW] Gaze direction expressed as angular rotations relative to the coordinate system defined in the gaze-signal metadata."
+    },
+    "gaze_angle_left": {
+      "$ref": "./geom.angle.json",
+      "description": "[NEW] Gaze angular rotation for the left eye ONLY."
+    },
+    "gaze_angle_right": {
+      "$ref": "./geom.angle.json",
+      "description": "[NEW] Gaze angular rotation for the right eye ONLY."
+    },
+    "confidence": {
+      "type": "array",
+      "description": "[NEW] confidence measure for the gaze predictions ranging from a 0 (0%) to 1 (100%)",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "gaze_extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
+
+
+
+

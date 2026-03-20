@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EyeBallSample",
+  "type": "object",
+  "required": ["timestamp"],
+  "properties": {
+    "timestamp": {
+      "type": "number",
+      "description": "A continuously increasing identifier of the sampling time registered by the device."
+    },
+    "center_coordinate_left": {
+      "$ref": "./geom.coordinate.json",
+      "description": "[NEW] 3D coordinate representing the position of the left eye center in the coordinate system and unit specified in the corresponding metadata."
+    },
+    "center_coordinate_right": {
+      "$ref": "./geom.coordinate.json",
+      "description": "[NEW] 3D coordinate representing the position of the right eye center in the coordinate system and unit specified in the corresponding metadata."
+    },
+    "optical_axis_left":{
+      "$ref": "./geom.vector.json",
+      "description": "[NEW] 3D vector representing the optical or pupillary axis formed by joining the eye ball center to pupil center of the left eye."
+    },
+    "optical_axis_right":{
+      "$ref": "./geom.vector.json",
+      "description": "[NEW] 3D vector representing the optical or pupillary axis formed by joining the eye ball center to pupil center of the right eye."
+    },
+    "corneal_reflections": {
+        "type": "array",
+        "description": "List of detected corneal reflection (glint) coordinates for purkinjee based eyey-trackers.",
+        "items": {
+            "$ref": "./geom.coordinate.schema.json"
+        }
+    },
+    "confidence": {
+      "type": "array",
+      "description": "[NEW] confidence measure for the eye ball predictions ranging from a 0 (0%) to 1 (100%)",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "gaze_extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
+
+
+
+

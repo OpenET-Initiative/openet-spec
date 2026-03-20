@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Session",
+  "type": "object",
+  "required": ["DeviceSerialNumber"],
+  "properties": {
+    "DeviceSerialNumber": {
+      "type": "string",
+      "description": "Unique identifier for the eye tracking device."
+    },    
+    "SoftwareVersions": {
+      "type": "string",
+      "description": "Version of the external software(s) used to operate or communicate with the device.",
+      "examples": ["SREB1.10.1630 WIN32 LID:F2AE011 Mod:2017.04.21 15:19 CEST", "WebGazer"]
+    },
+    "StartTime": {
+      "type": "integer",
+      "description": "Start time in seconds in relation to the start of acquisition of the first data sample in the session (negative values are allowed). This data MAY be specified with sub-second precision using the syntax s[.000000], where s reflects whole seconds, and .000000 reflects optional fractional seconds.",
+      "example": -2532
+    },
+    "PhysioType": {
+      "const": "eyetrack",
+      "description": "Const property for upstream compatiblity with BIDS"
+    },
+    "RecordedEye":{
+      "type": "string",
+      "enum": ["left", "right", "both", "cyclopean"],
+      "description": "Indicates the eye being tracked. Left = left eye ONLY, right = right eye ONLY, both = left and right SEPARATELY, and cyclopean = combining (e.g., averaging) both eyes. The value should be consistent with the SupportedModes in hardware object."
+    },
+    "EyeTrackerDistance":{
+      "type": "number",
+      "description": "Distance (in centimeters) between the eye-tracker and the participant eye(s). A value of 0 can be assigned for head-worn eye-trackers."
+    },
+    "EyeTrackingMethod": {
+      "type": "string",
+      "description": "Method used to track gaze or pupil position: 'DL' for deep-learning based methods, 'REG' for regression based methods, 'P–CR' for video based eye-tracking using pupil and corneal reflection; 'DPI' for Dual-Purkinje Imaging system, 'SSC' for scleral search coils; 'EOG' for electro-oculogram; 'Limbus' for trackers estimating limbus borders between the iris and sclera, 'OAE' for Otoacoustic emmisions; or other."
+    },
+    "PupilFitMethod": {
+      "type": "string",
+      "description": "The method employed for fitting the pupil, for example 'centre-of-mass' or 'ellipse'. If 'centre-of-mass' or 'ellipse' method is used, it is RECOMMENDED to use these exact labels."
+    },
+    "InterEyeDistance": {
+      "type": "number",
+      "description": "[NEW] Some eye-trackers use the inter-eye distance of the user as a parameter in their prediction algorithm. Whether this is supplied by the user, or assumed as a default by the eye-tracker, it should be supplied in the meta data for an experimenter."
+    }, 
+    "Signals": {
+      "type": "array",
+      "description": "List of metadata objects for each data signal provided by the eye-tracker.",
+      "items": {"$ref": "./metadata.signals.json"}
+    },
+    "SessionExtensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

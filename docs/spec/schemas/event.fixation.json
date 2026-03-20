@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/spec/schemas/fixation.schema.json",
+  "title": "Fixation",
+  "description": "",
+  "type": "object",
+  "required": ["start_time", "end_time"],
+  "properties": {
+    "start_time": {
+      "type": "number"
+    },
+    "end_time": {
+      "type": "number"
+    },
+    "duration": {
+      "type": "number",
+      "description": "Duration in milliseconds"
+    },
+    "centroid_x": {
+      "type": "number"
+    },
+    "centroid_y": {
+      "type": "number"
+    },
+    "dispersion": {
+      "type": "number"
+    },
+    "confidence": {
+      "type": "number"
+    }
+  }
+}

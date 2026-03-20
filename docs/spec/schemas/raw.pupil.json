@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PupilSample",
+  "type": "object",
+  "required": ["timestamp"],
+  "properties": {
+    "timestamp": {
+      "type": "number",
+      "description": "A continuously increasing identifier of the sampling time registered by the device. The timestamp values MUST adhere to the pupil-signals metadata provided for this session."
+    },
+    "pupil_diameter_left": {
+      "type": "number",
+      "description": "Pupil diameter in units specified in the corresponding session's pupil-signals metadata"
+    },
+    "pupil_diameter_right": {
+      "type": "number",
+      "description": "Pupil diameter in units specified in the corresponding session's pupil-signals metadata"
+    },
+    "pupil_diameter": {
+      "type": "number",
+      "description": "Cyclopean pupil diameter in units specified in the corresponding session's pupil-signals metadata"
+    },
+    "pupil_area_left": {
+      "type": "number",
+      "description": "Pupil area in units specified in the corresponding session's pupil-signals metadata"
+    },
+    "pupil_area_right": {
+      "type": "number",
+      "description": "Pupil area in units specified in the corresponding session's pupil-signals metadata"
+    },
+    "pupil_area": {
+      "type": "number",
+      "description": "Cyclopean pupil area in units specified in the corresponding session's pupil-signals metadata"
+    },
+    "pupil_center_left": {
+      "$ref": "./geom.coordinate.json",
+      "description": "Pupil center for the left eye in 2D or 3D coordinates"
+    },
+    "pupil_center_right": {
+      "$ref": "./geom.coordinate.json",
+      "description": "Pupil center for the right eye in 2D or 3D coordinates"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "pupil_extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
+
+
+
+

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blink",
+  "type": "object",
+  "required": ["start_time", "end_time"],
+  "properties": {
+    "start_time": {
+      "type": "number",
+      "description": "Timestamp marking the beginning of the blink event, expressed in the time units defined in the corresponding blink-signal metadata."
+    },
+    "end_time": {
+      "type": "number",
+      "description": "Timestamp marking the end of the blink event, expressed in the time units defined in the corresponding blink-signal metadata."
+    },
+    "duration": {
+      "type": "number",
+      "description": "Total duration of the blink event, measured as the difference between end_time and start_time."
+    },
+    "eye_openness_left": {
+      "type": "number",
+      "description": "Estimated openness of the left eye during the blink event, expressed in the units or scale defined in the corresponding blink-signal metadata."
+    },
+    "eye_openness_right": {
+      "type": "number",
+      "description": "Estimated openness of the right eye during the blink event, expressed in the units or scale defined in the corresponding blink-signal metadata."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score representing the reliability of the detected blink event, where 0 indicates lowest confidence and 1 indicates highest confidence."
+    },
+    "blink_extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

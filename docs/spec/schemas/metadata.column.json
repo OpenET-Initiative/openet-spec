@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Column",
+  "type": "object",
+  "required": ["Name", "Description", "Units"],
+  "properties": {
+    "Name": {
+      "type": "string",
+      "description": "Name of the column field",
+      "example": "x_coordinate"
+    },
+    "LongName": {
+      "type": "string",
+      "description": "Long (unabbreviated) name of the column.",
+      "example": "Gaze position (x)"
+    },
+    "Description": {
+      "type": "string",
+      "description": "Free-form natural language description. The description of the column.",
+      "example": "Gaze position x-coordinate of the recorded eye, in the coordinate units specified in this metadata."
+    },
+    "Units": {
+      "type": "string",
+      "description": "Measurement units for the associated variable. SI units in CMIXF formatting are recommended. Use 'NA' for normalised or dimensionless values.",
+      "examples": ["pixel", "visual-angle", "NA"]
+    },
+    "Origin": {
+      "type": "string",
+      "description": "Reference point from which the values in this column are measured or defined.",
+      "examples": ["System startup", "recording start", "coordinate origin", 0]
+    },
+    "Format": {
+      "type": "string",
+      "description": "Permitted formats for values in the described column.",
+      "examples": ["string", "number", "integer", "boolean", "datetime", "uri"]
+    },
+    "Levels": {
+      "type": "array",
+      "description": "For categorical variables: An object of possible values (keys) and their descriptions (values)."
+    },
+    "Delimiter": {
+      "type": "string",
+      "description": "If rows in a column may be interpreted as a lists of values, the character that separates one value from the next."
+    },
+    "Maximum": {
+      "type": "number",
+      "description": "Maximum value a column entry is permitted to have."
+    },
+    "Minimum": {
+      "type": "number",
+      "description": "Minimum value a column entry is permitted to have."
+    },
+    "ColumnExtensions": {
+      "type": "number",
+      "additionalProperties": true
+    }
+  }
+}
+

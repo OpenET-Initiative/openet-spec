@@ -1,0 +1,29 @@
+<svg width="220" height="145" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Eye outer shape (sharp ends) -->
+  <path d="M10 70 
+           Q70 5 110 5 
+           Q150 5 210 70
+           Q150 135 110 135
+           Q70 135 10 70 Z"
+        stroke="black"
+        stroke-width="15"
+        fill="none"/>
+
+  <!-- Open ring -->
+  <circle cx="110" cy="70" r="40"
+          stroke="#cbdc38"
+          stroke-width="27"
+          fill="none"
+          stroke-dasharray="200 50"/>
+
+  <!-- Pupil -->
+  <circle cx="110" cy="70" r="20" fill="black"/>
+
+  <!-- White glint -->
+  <ellipse cx="117" cy="64"
+           rx="5"
+           ry="5.5"
+           fill="white"/>
+
+</svg>

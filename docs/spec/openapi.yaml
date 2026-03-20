@@ -1,0 +1,31 @@
+openapi: 3.1.0
+info:
+  title: OpenET REST APIs
+  description: >
+    This specification defines standardized API paths for accessing eye-tracking data from devices.
+
+  version: 0.1.0
+
+# servers:
+#   - url: http://localhost:8080
+#     description: Local device API
+#   - url: https://api.openet.dev
+#     description: Example remote endpoint
+
+paths:
+
+  /devices:
+    get:
+      summary: List available eye-tracking devices
+      description: Returns metadata for all connected devices.
+      responses:
+        "200":
+          description: List of devices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: schemas/metadata.hardware.json
+
+  

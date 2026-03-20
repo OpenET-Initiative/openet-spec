@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hardware",
+  "type": "object",
+  "required": ["Manufacturer", "ManufacturersModelName"],
+  "properties": {
+    "Manufacturer": {
+      "type": "string",
+      "examples": ["EyeLink", "Apple"]
+    },
+    "ManufacturersModelName": {
+      "type": "string",
+      "examples": ["EYELINK II CL v4.56 Aug 18 2010", "Macbook Pro M2"]
+    },
+    "FirmwareVersions":{
+      "type": "string",
+      "description": "[NEW] Current firmware version installed on the device hardware (the built-in software running inside the device). This is separate from external software versions running on the host computer or mobile device, such as experiment software or companion applications. Software versions are part of the session object.",
+      "examples": ["MacOS 26 Tahoe Safari 26", "Windows 11", "Android 16"]
+    },
+    "SupportedModes": {
+      "type": "array",
+      "description": "Eye-tracking modes supported by the hardware, indicating whether gaze data is derived from one eye, both eyes independently, or a combined cyclopean estimate.",
+      "items": {
+        "type": "string",
+        "enum": ["monocular", "binocular", "cyclopean"]
+      },
+      "example": ["binocular", "cyclopean"]
+    },
+    "SupportedSamplingRates": {
+      "type": "array",
+      "description": "[NEW] Data sampling frequencies supported by the hardware. Sampling frequencies may differ for different data signals, in which case a separate entry should be provided for each data type (gaze, video, motion, etc.).",
+      "example": [{ "dataType": "gaze",
+                    "unit": "Hz",
+                    "rates": [60, 200, 500]},
+                  { "dataType": "Video",
+                    "unit": "fps",
+                    "rates": [30, 60]},
+                  { "dataType": "imu",
+                    "unit": "Hz",
+                    "rates": [100, 200, 400]}]},
+    "SupportedCoordinateSystems": {
+      "type": "array",
+      "description": "[NEW] possible coordinate systems for the spatial data produced by hardware. Elements can also contain the dataType corresponding to each coordinate system",
+      "example": ["screen", "world", "head", "eye"]
+    },
+    "SupportedCalibrationTypes": {
+      "type": "string",
+      "description": "[NEW] brief description of the supported calibration methods for the hardware."
+    },
+    "VendorExtensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

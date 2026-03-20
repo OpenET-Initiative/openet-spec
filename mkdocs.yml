@@ -1,18 +1,64 @@
 site_name: OpenET Initiative
 theme:
   name: material
+  logo: assets/openET_white_bg.png
+  features:
+    - navigation.expand #will automatically expand sections
+    - navigation.path
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    # - toc.integrate #will move the TOC to left
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: lime
+      accent: light blue
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: lime
+      accent: light blue
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: lime
+      accent: light blue
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
 
 nav:
   - Home: index.md
-  - Spec:
-      - Introduction: spec/introduction.md
-  - API: api/openapi.yaml
-
+  - Data Model: data-model.md
+  - API specifications:
+      - REST: API/rest.md
+      - Streaming: API/streaming.md
+  - Open Governance:
+      - Charter: Governance/Charter.md
+      - Agenda Tracking: Governance/MeetingAgendaTracking.md
+      
 plugins:
   - search
   - awesome-pages
   - git-revision-date-localized
+  - swagger-ui-tag:
+      docExpansion: "list" #full or none
+      filter: true
+      syntaxHighlightTheme: nord
+      tryItOutEnabled: False
 
 markdown_extensions:
   - admonition
   - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets

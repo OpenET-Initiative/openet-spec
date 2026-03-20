@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Saccade",
+  "type": "object",
+  "required": ["start_time", "end_time"],
+  "properties": {
+    "start_time": {
+      "type": "number"
+    },
+    "end_time": {
+      "type": "number"
+    },
+    "amplitude": {
+      "type": "number"
+    },
+    "peak_velocity": {
+      "type": "number"
+    },
+    "direction": {
+      "type": "number",
+      "description": "Angle in degrees"
+    }
+  }
+}

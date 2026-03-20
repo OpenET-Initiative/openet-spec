@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal",
+  "type": "object",
+  "required": ["Name", "SamplingFrequency", "SampleCoordinateSystem", "Columns"],
+  "properties": {
+    "Name": {
+      "type": "string",
+      "enum": ["gaze", "pupil", "blink", "eyeball"]
+    },
+    "SamplingFrequency": {
+      "type": "number",
+      "minimum": 0,
+      "example": 1000
+    },
+    "SampleCoordinateSystem": {
+      "type": "string",
+      "description": "Coordinate system of the data signal. Generally gaze signals are set to use 'gaze-on-screen' coordinate system, but you may use 'eye-in-head' or 'gaze-in-world'. If none of the three default options properly describe the coordinate system, the 'custom' keyword MUST be employed and the coordinate system MUST be described using additional metadata entries.",
+      "enum": [ "gaze-on-screen", "eye-in-head", "gaze-in-world",  "1D", "custom"]
+    },
+    "CalibrationType": {
+      "type": "string",
+      "description": "Type of calibration procedure most recently executed for the device. Calibration procedures may differ depending on the data signal being calibrated (e.g., a 9-point calibration for gaze estimation or a pupillary lightType of calibration procedure most recently executed for the device. Calibration procedures may differ depending on the data signal being calibrated (e.g., a 9-point calibration for gaze estimation or a pupillary light)."
+    },
+    "CalibrationCount": {
+      "type": "number",
+      "description": "The number of calibrations corresponding to the session recorded.",
+      "minimum": 0
+    },
+    "CalibrationUnit": {
+        "type": "string",
+        "description": "Unit of the metric calculated in calibration trials. For e.g., pixel/mm/cm for gaze accuracy"
+    },
+    "AverageCalibrationError": {
+      "type": "string",
+      "description": "Average calibration error observed in the calibration counts."
+    },
+    "MaximumCalibrationError": {
+      "type": "number",
+      "description": "Maximal calibration error observed in the calibration counts."
+    },
+    "Columns": {
+      "type": "array",
+      "description": "List of column metadata objects describing each column in the data stream.",
+      "items": {"$ref": "./metadata.column.json"}
+    },
+    "SignalExtensions": {
+      "type": "number",
+      "additionalProperties": true
+    }
+  }
+}
+
+
