@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Coordinate",
+  "description": "Cartesian coordinate represented as [x, y] or [x, y, z] in the coordinate system specified in the corresponding metadata for the signal.",
+  "type": "array",
+  "prefixItems": [
+    {
+      "type": "number",
+      "description": "X coordinate representing the horizontal position."
+    },
+    {
+      "type": "number",
+      "description": "Y coordinate representing the vertical position."
+    },
+    {
+      "type": "number",
+      "description": "Z coordinate representing depth or distance along the third axis (optional)."
+    }
+  ],
+  "minItems": 2,
+  "maxItems": 3
+}

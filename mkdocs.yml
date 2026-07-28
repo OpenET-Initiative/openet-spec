@@ -38,8 +38,9 @@ theme:
 
 nav:
   - Home: index.md
+  - About Us: about.md
   - Data Model: data-model.md
-  - API specifications:
+  - API Specifications:
       - REST: API/rest.md
       - Streaming: API/streaming.md
   - Open Governance:
@@ -50,6 +51,7 @@ plugins:
   - search
   - awesome-pages
   - git-revision-date-localized
+  - asyncapi
   - swagger-ui-tag:
       docExpansion: "list" #full or none
       filter: true
@@ -61,4 +63,6 @@ markdown_extensions:
   - footnotes
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      base_path:
+        - !relative $config_dir/docs

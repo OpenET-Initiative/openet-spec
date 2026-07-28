@@ -1,0 +1,173 @@
+asyncapi: 3.0.0
+info:
+  title: OpenET Streaming API
+  version: 0.1.0
+  description: >
+    Asynchronous API for real-time streaming of data from eye-trackers.
+
+# servers:
+#   production:
+#     host: stream.openet.dev
+#     protocol: wss
+#     description: Example production streaming endpoint
+
+channels:
+
+  gaze:
+    address: devices/{deviceId}/gaze
+    parameters:
+      sessionId:
+        description: Identifier of the connected device to retrieve data from
+    messages:
+      gazeSample:
+        $ref: "#/components/messages/gazeSample"
+
+  eyeball:
+    address: devices/{deviceId}/eyeball
+    parameters:
+      sessionId:
+        description: Identifier of the connected device to retrieve data from
+    messages:
+      eyeballSample:
+        $ref: "#/components/messages/eyeballSample"
+
+  eyelid:
+    address: devices/{deviceId}/eyelid
+    parameters:
+      sessionId:
+        description: Identifier of the connected device to retrieve data from
+    messages:
+      eyelidSample:
+        $ref: "#/components/messages/eyelidSample"
+
+  pupil:
+    address: devices/{deviceId}/pupil
+    parameters:
+      sessionId:
+        description: Identifier of the connected device to retrieve data from
+    messages:
+      pupilSample:
+        $ref: "#/components/messages/pupilSample"
+
+  blinks:
+    address: devices/{deviceId}/blinks
+    parameters:
+      sessionId:
+        description: Identifier of the connected device to retrieve data from
+    messages:
+      blinkEvent:
+        $ref: "#/components/messages/blinkEvent"
+
+  fixations:
+    address: devices/{deviceId}/fixations
+    parameters:
+      sessionId:
+        description: Identifier of the connected device to retrieve data from
+    messages:
+      fixationEvent:
+        $ref: "#/components/messages/fixationEvent"
+
+  saccades:
+    address: devices/{deviceId}/saccades
+    parameters:
+      sessionId:
+        description: Identifier of the connected device to retrieve data from
+    messages:
+      saccadeEvent:
+        $ref: "#/components/messages/saccadeEvent"
+
+operations:
+
+  sendGaze:
+    action: send
+    channel:
+      $ref: "#/channels/gaze"
+    summary: Stream raw gaze samples for a session
+    messages:
+      - $ref: "#/channels/gaze/messages/gazeSample"
+
+  sendEyeball:
+    action: send
+    channel:
+      $ref: "#/channels/eyeball"
+    summary: Stream raw eyeball position samples for a session
+    messages:
+      - $ref: "#/channels/eyeball/messages/eyeballSample"
+
+  sendEyelid:
+    action: send
+    channel:
+      $ref: "#/channels/eyelid"
+    summary: Stream raw eyelid state samples for a session
+    messages:
+      - $ref: "#/channels/eyelid/messages/eyelidSample"
+
+  sendPupil:
+    action: send
+    channel:
+      $ref: "#/channels/pupil"
+    summary: Stream raw pupil measurement samples for a session
+    messages:
+      - $ref: "#/channels/pupil/messages/pupilSample"
+
+  sendBlinks:
+    action: send
+    channel:
+      $ref: "#/channels/blinks"
+    summary: Stream detected blink events for a session
+    messages:
+      - $ref: "#/channels/blinks/messages/blinkEvent"
+
+  sendFixations:
+    action: send
+    channel:
+      $ref: "#/channels/fixations"
+    summary: Stream detected fixation events for a session
+    messages:
+      - $ref: "#/channels/fixations/messages/fixationEvent"
+
+  sendSaccades:
+    action: send
+    channel:
+      $ref: "#/channels/saccades"
+    summary: Stream detected saccade events for a session
+    messages:
+      - $ref: "#/channels/saccades/messages/saccadeEvent"
+
+components:
+  messages:
+    gazeSample:
+      name: gazeSample
+      title: Gaze sample
+      # payload:
+        # $ref: schemas/raw.gaze.json
+    eyeballSample:
+      name: eyeballSample
+      title: eyeBall sample
+      # payload:
+        # $ref: schemas/raw.eyeball.json
+    eyelidSample:
+      name: eyelidSample
+      title: eyeLid sample
+      # payload:
+        # $ref: schemas/raw.eyelid.json
+    pupilSample:
+      name: pupilSample
+      title: Pupil sample
+      # payload:
+        # $ref: schemas/raw.pupil.json
+    blinkEvent:
+      name: blinkEvent
+      title: Blink event
+      # payload:
+        # $ref: schemas/event.blink.json
+    fixationEvent:
+      name: fixationEvent
+      title: Fixation event
+      # payload:
+        # $ref: schemas/event.fixation.json
+    saccadeEvent:
+      name: saccadeEvent
+      title: Saccade event
+      # payload:
+        # $ref: schemas/event.saccade.json

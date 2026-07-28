@@ -1,6 +1,6 @@
 # Data Model
 
-The OpenET data model defines standardized objects for representing eye-tracking data across devices, APIs, and storage formats. These schemas are designed to be compatible with existing research standards such as **Eye-tracking-BIDS**, while also supporting **real-time streaming APIs** and **device interoperability**. Please use GitHub PRs, issues, or discussions to contribute or suggest changes.
+The OpenET data model defines standardized objects for representing eye-tracking data across devices, APIs, and storage formats. These schemas are designed to be compatible with existing research standards such as **Eye-tracking-BIDS**, while also supporting **real-time streaming APIs** and **device interoperability**. Please use Gdocs/itHub PRs, issues, or discussions to contribute or suggest changes.
 
 ---
 
@@ -13,7 +13,7 @@ Geom layer defines reusable geometric primitives, which serve as reusable blocks
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/geom.coordinate.json"
+    --8<-- "spec/schemas/geom.coordinate.json"
     ```
 
 
@@ -22,7 +22,7 @@ Geom layer defines reusable geometric primitives, which serve as reusable blocks
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/geom.vector.json"
+    --8<-- "spec/schemas/geom.vector.json"
     ```
 
 
@@ -31,7 +31,7 @@ Geom layer defines reusable geometric primitives, which serve as reusable blocks
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/geom.angle.json"
+    --8<-- "spec/schemas/geom.angle.json"
     ```
 
 
@@ -46,7 +46,7 @@ The metadata layer adds essential context, describing acquisition setups (hardwa
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/metadata.column.json"
+    --8<-- "spec/schemas/metadata.column.json"
     ```
 
 ### Hardware
@@ -54,7 +54,7 @@ The metadata layer adds essential context, describing acquisition setups (hardwa
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/metadata.hardware.json"
+    --8<-- "spec/schemas/metadata.hardware.json"
     ```
 
 ### Session
@@ -62,7 +62,7 @@ The metadata layer adds essential context, describing acquisition setups (hardwa
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/metadata.session.json"
+    --8<-- "spec/schemas/metadata.session.json"
     ```
 
 ### Signals
@@ -70,7 +70,7 @@ The metadata layer adds essential context, describing acquisition setups (hardwa
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/metadata.signals.json"
+    --8<-- "spec/schemas/metadata.signals.json"
     ```
 
 ---
@@ -84,14 +84,14 @@ The raw layer represents raw signals from eye-tracking hardware such as eyelid s
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/raw.gaze.json"
+    --8<-- "spec/schemas/raw.gaze.json"
     ```
 ### eyeBall
 
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/raw.eyeBall.json"
+    --8<-- "spec/schemas/raw.eyeBall.json"
     ```
 
 ### eyeLid
@@ -99,7 +99,7 @@ The raw layer represents raw signals from eye-tracking hardware such as eyelid s
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/raw.eyeLid.json"
+    --8<-- "spec/schemas/raw.eyeLid.json"
     ```
 
 ### Pupil
@@ -107,7 +107,7 @@ The raw layer represents raw signals from eye-tracking hardware such as eyelid s
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/raw.pupil.json"
+    --8<-- "spec/schemas/raw.pupil.json"
     ```
 
 ---
@@ -121,7 +121,7 @@ The event layer captures derived measures of fixations, saccades, blinks, etc., 
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/event.blink.json"
+    --8<-- "spec/schemas/event.blink.json"
     ```
 
 ### Fixation
@@ -129,7 +129,7 @@ The event layer captures derived measures of fixations, saccades, blinks, etc., 
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/event.fixation.json"
+    --8<-- "spec/schemas/event.fixation.json"
     ```
 
 ### Saccade
@@ -137,7 +137,17 @@ The event layer captures derived measures of fixations, saccades, blinks, etc., 
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/event.saccade.json"
+    --8<-- "spec/schemas/event.saccade.json"
+    ```
+
+---
+
+### External event marker
+
+??? "JSON Schema"
+
+    ```json
+    --8<-- "spec/schemas/event.marker.json"
     ```
 
 ---
@@ -146,11 +156,23 @@ The event layer captures derived measures of fixations, saccades, blinks, etc., 
 
 Higher-order metrics computed from raw signals and events are defined in this layer.
 
-<!-- ??? "JSON Schema"
+### Gaze Velocity
+
+??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/blink.schema.json"
-    ``` -->
+    --8<-- "spec/schemas/metrics.velocity.json"
+    ```
+
+---
+
+### Gaze Entropy
+
+??? "JSON Schema"
+
+    ```json
+    --8<-- "spec/schemas/metrics.entropy.json"
+    ```
 
 ---
 
@@ -168,7 +190,7 @@ The `FrameReference` object links eye-tracking samples to frames in a video stre
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/gaze_sample.schema.json"
+    --8<-- "spec/schemas/gaze_sample.schema.json"
     ```
 
 ---
@@ -180,5 +202,5 @@ The `Stream` object describes a data stream exposed by an eye-tracking device or
 ??? "JSON Schema"
 
     ```json
-    --8<-- "docs/spec/schemas/gaze_sample.schema.json"
+    --8<-- "spec/schemas/gaze_sample.schema.json"
     ``` -->

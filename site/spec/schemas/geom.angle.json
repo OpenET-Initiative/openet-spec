@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Angle",
+  "description": "Angular direction represented as [yaw, pitch] or [yaw, pitch, roll] in degrees. If the eye tracker uses [azimuth, elevation] instead of [yaw, pitch], replace yaw with azimuth and pitch with elevation, maintaining the same order.",
+  "type": "array",
+  "prefixItems": [
+    {
+      "type": "number",
+      "description": "Yaw angle representing horizontal rotation."
+    },
+    {
+      "type": "number",
+      "description": "Pitch angle representing vertical rotation."
+    },
+    {
+      "type": "number",
+      "description": "Roll angle representing torsional rotation (optional)."
+    }
+  ],
+  "minItems": 2,
+  "maxItems": 3
+}

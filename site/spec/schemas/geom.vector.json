@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vector",
+  "description": "Vector represented as [x, y] or [x, y, z] components describing direction or displacement in the coordinate system specified in the corresponding metadata.",
+  "type": "array",
+  "prefixItems": [
+    {
+      "type": "number",
+      "description": "X component of the vector."
+    },
+    {
+      "type": "number",
+      "description": "Y component of the vector."
+    },
+    {
+      "type": "number",
+      "description": "Z component of the vector (optional)."
+    }
+  ],
+  "minItems": 2,
+  "maxItems": 3
+}

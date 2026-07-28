@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openet-initiative.github.io/schemas/event.marker.json",
+  "title": "External event marker",
+  "description": "A client- or stimulus-authored event pushed into an active session's timeline, distinct from device-derived events.",
+  "type": "object",
+  "required": ["sessionId", "timestamp"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this marker event"
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "Identifier of the session this marker belongs to"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp at which the marker occurred"
+    },
+    "label": {
+      "type": "string",
+      "description": "Short identifier for the marker type, e.g. 'stimulus_onset', 'user_response', 'trial_start'"
+    },
+    "value": {
+      "description": "Optional descriptive payload associated with the marker (e.g. stimulus ID, response code)",
+      "type": ["string", "number", "boolean", "object", "null"]
+    },
+    "source_clock": {
+      "type": "string",
+      "description": "Origin of the marker timestamp, e.g. 'experimenter', 'stimulus-software', 'external-trigger'"
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
