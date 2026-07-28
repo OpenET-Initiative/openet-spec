@@ -26,10 +26,7 @@
     },
     "corneal_reflections": {
         "type": "array",
-        "description": "List of detected corneal reflection (glint) coordinates for purkinjee based eyey-trackers.",
-        "items": {
-            "$ref": "./geom.coordinate.schema.json"
-        }
+        "description": "List of detected corneal reflection (glint) coordinates for purkinjee based eyey-trackers."
     },
     "confidence": {
       "type": "array",

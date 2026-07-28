@@ -1,0 +1,41 @@
+{
+  "$id": "https://openet-initiative.github.io/schemas/metrics.entropy.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gaze Entropy",
+  "description": "A higher-order metric quantifying the spatial randomness/dispersion of gaze positions over a session or time window, computed from raw gaze signals.",
+  "type": "object",
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "description": "Identifier of the session this metric was computed for"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp marking the start of the window used to compute this metric"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp marking the end of the window used to compute this metric"
+    },
+    "value": {
+      "type": "number",
+      "description": "Computed gaze entropy value, in bits (Shannon entropy over spatial gaze distribution)"
+    },
+    "method": {
+      "type": "string",
+      "description": "Name of the entropy estimation method used, e.g. 'grid-based', 'kernel-density'",
+      "default": "grid-based"
+    },
+    "gridSize": {
+      "type": "number",
+      "description": "Spatial bin size used for grid-based entropy estimation, if applicable"
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": ["sessionId","startTime", "endTime", "value"]
+}

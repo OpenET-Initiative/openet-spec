@@ -1,0 +1,42 @@
+{
+  "$id": "https://openet-initiative.github.io/schemas/metrics.velocity.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gaze Velocity",
+  "description": "A higher-order metric quantifying the rate of change of gaze position over a session or time window, computed from raw gaze signals.",
+  "type": "object",
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "description": "Identifier of the session this metric was computed for"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp marking the start of the window used to compute this metric"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp marking the end of the window used to compute this metric"
+    },
+    "meanVelocity": {
+      "type": "number",
+      "description": "Mean gaze velocity over the window, in degrees per second"
+    },
+    "peakVelocity": {
+      "type": "number",
+      "description": "Peak instantaneous gaze velocity observed in the window, in degrees per second"
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of measurement for velocity values",
+      "default": "deg/s"
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": ["sessionId", "startTime", "endTime", "meanVelocity"],
+  "additionalProperties": false
+}
