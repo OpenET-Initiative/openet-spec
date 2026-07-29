@@ -139,35 +139,35 @@ components:
     gazeSample:
       name: gazeSample
       title: Gaze sample
-      payload:
-        $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/raw.gaze.json
+      # payload:
+      #   $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/raw.gaze.json
     eyeballSample:
       name: eyeballSample
       title: eyeBall sample
-      payload:
-        $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/raw.eyeBall.json
+      # payload:
+      #   $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/raw.eyeBall.json
     eyelidSample:
       name: eyelidSample
       title: eyeLid sample
-      payload:
-        $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/raw.eyeLid.json
+      # payload:
+      #   $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/raw.eyeLid.json
     pupilSample:
       name: pupilSample
       title: Pupil sample
-      payload:
-        $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/raw.pupil.json
+      # payload:
+      #   $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/raw.pupil.json
     blinkEvent:
       name: blinkEvent
       title: Blink event
-      payload:
-        $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/event.blink.json
+      # payload:
+      #   $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/event.blink.json
     fixationEvent:
       name: fixationEvent
       title: Fixation event
-      payload:
-        $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/event.fixation.json
+      # payload:
+      #   $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/event.fixation.json
     saccadeEvent:
       name: saccadeEvent
       title: Saccade event
-      payload:
-        $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/event.saccade.json
+      # payload:
+      #   $ref: https://raw.githubusercontent.com/OpenET-Initiative/openet-spec/main/docs/spec/schemas/event.saccade.json
